@@ -13,9 +13,9 @@ program pendolo
     read*,f
     write(*,*)"w (def. 0.6)"
     
-    write(*,*)"dt" (es. 10e-04)
+    write(*,*)"dt (es. 10e-04)"
     read*,dt
-    write(*,*)"nstep" (es. 500000)
+    write(*,*)"nstep (es. 500000)"
     read*,nstep
 
     om=1
