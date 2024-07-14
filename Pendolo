@@ -12,6 +12,7 @@ program pendolo
     write(*,*)"f (def. 1.15)"
     read*,f
     write(*,*)"w (def. 0.6)"
+    read*,w
     
     write(*,*)"dt (es. 10e-04)"
     read*,dt
