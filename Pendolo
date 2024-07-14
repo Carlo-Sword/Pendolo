@@ -1,0 +1,47 @@
+program pendolo
+    implicit none
+     integer,parameter :: rk=selected_real_kind(7)
+     real :: om, a, f, w
+     real(kind=rk) :: dt, d2theta, dtheta, theta, t, dthetapar, d2thetapar
+     integer :: it,nstep
+    
+    write(*,*)"theta iniziale (def. 0.3)"
+    read*,theta
+    write(*,*)"a (def 0.5)"
+    read*,a
+    write(*,*)"f (def. 1.15)"
+    read*,f
+
+    write(*,*)"dt" (es. 10e-04)
+    read*,dt
+    write(*,*)"nstep" (es. 500000)
+    read*,nstep
+    
+    it=0
+    t=it*dt
+    dtheta=0.0
+    dthetapar=0.0
+    d2thetapar=0.0
+    d2theta =-om**2*sin(theta)-a*dtheta+f*cos(w*t)
+    write(unit=1,fmt=*)it,t,theta,dtheta,d2theta
+
+    do it=1,nstep
+
+        t=it*dt
+
+        theta=theta+dtheta*dt+0.5*dt*d2theta**2
+
+        dthetapar=dtheta+d2theta*dt
+
+        d2thetapar=-om**2*sin(theta)-a*dthetapar+f*cos(w*t)
+
+        dtheta=dtheta+0.5*dt*(d2theta+d2thetapar)
+
+        d2theta=-om**2*sin(theta)-a*dtheta+f*cos(w*t)
+
+
+        write(unit=1,fmt=*)it,t,theta,dtheta,d2theta
+        
+    end do
+
+end program pendolo
