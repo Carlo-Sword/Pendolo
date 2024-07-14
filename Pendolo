@@ -17,7 +17,8 @@ program pendolo
     read*,dt
     write(*,*)"nstep" (es. 500000)
     read*,nstep
-    
+
+    om=1
     it=0
     t=it*dt
     dtheta=0.0
