@@ -11,7 +11,8 @@ program pendolo
     read*,a
     write(*,*)"f (def. 1.15)"
     read*,f
-
+    write(*,*)"w (def. 0.6)"
+    
     write(*,*)"dt" (es. 10e-04)
     read*,dt
     write(*,*)"nstep" (es. 500000)
